@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+
+import os, os.path, sys
+import subprocess
+import datetime
+
+
+
+class Merge():
+    
+    def __init__(self):
+        pass
+
+
+class Gui(): 
+    def __init__(self):
+        pass
+    
+class Liste():
+    def __init__(self):
+        pass
+
+def main():
+	
+	return 0
+
+if __name__ == '__main__':
+	main()
+

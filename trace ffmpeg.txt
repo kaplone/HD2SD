@@ -1,0 +1,33 @@
+ffmpeg -i /home/autor/Desktop/encodages_tests_2014/bout1.m2t -ss 150 -t 30 -lmin 0 -lmax '21*QP2LAMBDA' -mblmin 1 -qmin 1 -qmax 7 -maxrate 8500k -vf "yadif=0:0:0,hqdn3d=2:1:2" -s 720x576 -sws_flags lanczos -target pal-dvd -pix_fmt yuv420p -me_method epzs -bf 2 -trellis 2 -cmp 2 -subcmp 2 /home/autor/Desktop/encodages_tests_2014/bout1_f.mpg
+ffmpeg -i /home/autor/Desktop/encodages_tests_2014/bout1.m2t -t 30 -lmin 0 -lmax '21*QP2LAMBDA' -mblmin 1 -qmin 1 -qmax 7 -maxrate 8500k -vf "yadif=0:0:0,hqdn3d=2:1:2" -s 720x576 -sws_flags lanczos -target pal-dvd -pix_fmt yuv420p -me_method epzs -bf 2 -trellis 2 -cmp 2 -subcmp 2 /home/autor/Desktop/encodages_tests_2014/bout1_a.mpg
+ffmpeg -i /home/autor/Desktop/encodages_tests_2014/bout1.m2t -ss 30 -t 30 -lmin 0 -lmax '21*QP2LAMBDA' -mblmin 1 -qmin 1 -qmax 7 -maxrate 8500k -vf "yadif=0:0:0,hqdn3d=2:1:2" -s 720x576 -sws_flags lanczos -target pal-dvd -pix_fmt yuv420p -me_method epzs -bf 2 -trellis 2 -cmp 2 -subcmp 2 /home/autor/Desktop/encodages_tests_2014/bout1_b.mpg
+
+
+sh ./ffmpeg_HQ.sh /home/autor/Desktop/bout1.m2t /home/autor/Desktop/bout1@2.5Mb.mpg 2500000
+
+mencoder -of mpeg -mpegopts format=dvd -oac copy -ovc copy bout1_a.mpg bout1_b.mpg bout1_c.mpg bout1_d.mpg -o all_ad.vob
+
+
+ffmpeg -i /mnt/isos_archives/debut_2014/temp/100-1000/880/film_880_complet.MTS -lmin 0 -lmax '21*QP2LAMBDA' -mblmin 1 -qmin 1 -qmax 7 -maxrate 8500k -b:v 6000k -vf "yadif=0:0:0,hqdn3d=2:1:2" -s 720x576 -sws_flags lanczos -target pal-dvd -pix_fmt yuv420p -me_method epzs -bf 2 -trellis 2 -cmp 2 -subcmp 2 /mnt/isos_archives/debut_2014/temp/100-1000/880/film_880_complet.hdv.1080.mpg
+
+
+ffmpeg -i $1 -vcodec mpeg2video -b 10M -vtag hdv5 -r 25 -g 1 -aspect 16:9 -s 1920x1080 -acodec pcm_s16le -ar 44100 -ac 2 $1.hdv.1080.avi SetFile -c KeyG -t MooV $1.hdv.1080.avi 
+
+
+
+
+###############
+
+ffmpeg -i /mnt/isos_archives/debut_2014/temp/100-1000/880/film_880_complet.MTS -vcodec mpeg2video -b 15M -vtag hdv5 -r 25 -g 1 -aspect 16:9 -s 1920x1080 -acodec pcm_s16le -ar 44100 -ac 2 /mnt/isos_archives/debut_2014/temp/100-1000/880/film_880_complet.hdv.1080.M2T
+ffmpeg -i /mnt/isos_archives/debut_2014/temp/100-1000/880/film_880_complet.MTS -lmin 0 -lmax '21*QP2LAMBDA' -mblmin 1 -qmin 1 -qmax 7 -maxrate 8500k -b:v 6000k -vf "yadif=0:0:0,hqdn3d=2:1:2" -s 720x576 -sws_flags lanczos -target pal-dvd -pix_fmt yuv420p -me_method epzs -bf 2 -trellis 2 -cmp 2 -subcmp 2 /mnt/isos_archives/debut_2014/temp/100-1000/880/film_880_complet.hdv.1080.mpg
+ffmpeg -i /mnt/isos_archives/debut_2014/temp/100-1000/880/film_880_complet.MTS -lmin 0 -lmax '21*QP2LAMBDA' -mblmin 1 -qmin 1 -qmax 7 -maxrate 8500k -b:v 6000k -s 720x576 -sws_flags lanczos -target pal-dvd -pix_fmt yuv420p -me_method epzs -bf 2 -trellis 2 -cmp 2 -subcmp 2 /mnt/isos_archives/debut_2014/temp/100-1000/880/film_880_complet.hdv.1080.mpg
+###############
+
+
+ffmpeg -i /mnt/isos_archives/temp/5280.M2T -an -lmin 0 -lmax '21*QP2LAMBDA' -mblmin 1 -qmin 1 -qmax 7 -maxrate 8500k -b:v 4150k -vf "yadif=0:0:0,hqdn3d=2:1:2" -s 720x576 -sws_flags lanczos -target pal-dvd -pix_fmt yuv420p -me_method epzs -bf 2 -trellis 2 -cmp 2 -subcmp 2 -f mpeg2video /mnt/nfs_in/5280/5280.m2v
+ffmpeg -i /mnt/isos_archives/temp/5280_coulisses.mpg -an -lmin 0 -lmax '21*QP2LAMBDA' -mblmin 1 -qmin 1 -qmax 7 -maxrate 8500k -b:v 4150k -vf "yadif=0:0:0,hqdn3d=2:1:2" -s 720x576 -sws_flags lanczos -target pal-dvd -pix_fmt yuv420p -me_method epzs -bf 2 -trellis 2 -cmp 2 -subcmp 2 -f mpeg2video /mnt/nfs_in/5280/5280_bonus_c.m2v
+ffmpeg -i /mnt/isos_archives/temp/5280_itw.M2T -an -lmin 0 -lmax '21*QP2LAMBDA' -mblmin 1 -qmin 1 -qmax 7 -maxrate 8500k -b:v 4150k -vf "yadif=0:0:0,hqdn3d=2:1:2" -s 720x576 -sws_flags lanczos -target pal-dvd -pix_fmt yuv420p -me_method epzs -bf 2 -trellis 2 -cmp 2 -subcmp 2 -f mpeg2video /mnt/nfs_in/5280/5280_bonus_i.m2v
+ffmpeg -i /mnt/isos_archives/temp/5280_generique.mpg -an -lmin 0 -lmax '21*QP2LAMBDA' -mblmin 1 -qmin 1 -qmax 7 -maxrate 8500k -b:v 4150k -vf "yadif=0:0:0,hqdn3d=2:1:2" -s 720x576 -sws_flags lanczos -target pal-dvd -pix_fmt yuv420p -me_method epzs -bf 2 -trellis 2 -cmp 2 -subcmp 2 -f mpeg2video /mnt/nfs_in/5280/5280_gene.m2v
+
+
+ffmpeg -i /mnt/isos_archives/temp/5280.M2T -an -lmin 0 -lmax '21*QP2LAMBDA' -mblmin 1 -qmin 1 -qmax 7 -maxrate 8500k -b:v 4150k -vf "yadif=0:0:0,hqdn3d=2:1:2" -s 720x576 -sws_flags lanczos -target pal-dvd -pix_fmt yuv420p -me_method epzs -bf 2 -trellis 2 -cmp 2 -subcmp 2 -f mpeg2video /mnt/nfs_in/755/755.m2v
